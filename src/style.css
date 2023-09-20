@@ -1,6 +1,7 @@
 body {
   background-color: aliceblue;
   background-image: url(../images/clouds.jpg);
+  text-align: center;
 }
 
 ul {
@@ -18,9 +19,24 @@ footer {
   font-size: 70px;
 }
 
+.condition {
+  font-size: 40px;
+}
+
 .temp,
 .temp-icon {
   font-size: 70px;
+  font-weight: bold;
+}
+
+.conversions {
+  font-size: 20px;
+  vertical-align: text-top;
+  font-weight: lighter;
+}
+
+.current-condition {
+  color: #7fade9;
 }
 
 .container {
