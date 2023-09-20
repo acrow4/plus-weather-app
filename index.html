@@ -10,11 +10,37 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fa04a1d27b.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
-      <h1>Weather App</h1>
+      <p>Monday 8:50 pm</p>
+      <div class="row">
+        <div class="col-8">
+          <h1>Atlanta</h1>
+
+          <ul>
+            <li>Clear</li>
+            <li>Humidity 82%</li>
+            <li>Wind 7.2 km/h</li>
+          </ul>
+        </div>
+
+        <div class="col-2">82°F</div>
+        <div class="col-2">
+          <i class="fa-solid fa-cloud-rain current-condition"></i>
+        </div>
+      </div>
     </div>
     <script src="src/app.js"></script>
   </body>
