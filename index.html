@@ -9,6 +9,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,20 +27,21 @@
     <div class="container">
       <p></p>
       <div class="row">
-        <div class="col-5">
-          <h1 class="city">Tallahassee</h1>
+        <div class="col-6">
+          <h1 class="city" id="city">New York</h1>
           <ul>
-            <li>Precipitation: 0%</li>
-            <li>Humidity: 82%</li>
-            <li>Wind: 7.2 km/h</li>
+            <li>Precipitation: 70%</li>
+            <li id="humidity">Humidity: 82%</li>
+            <li id="wind-speed">Wind Speed: 7.2 km/h</li>
           </ul>
         </div>
-        <div class="col-7">
+        <div class="col-6">
           <ul>
             <li>Monday 8:50 pm</li>
-            <li class="condition">Clear</li>
+            <li class="condition">Rainy</li>
             <li class="temp">
-              82<span class="conversions">°F | °C</span>
+              <span id="current-temp"></span
+              ><span class="conversions">°F | °C</span>
               <i class="fa-solid fa-cloud-rain current-condition"></i>
             </li>
           </ul>
