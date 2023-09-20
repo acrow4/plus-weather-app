@@ -57,5 +57,13 @@ function createUrl(city) {
   axios.get(weatherUrl).then(showData);
 }
 
+function getCity(event) {
+  event.preventDefault();
+  let userCity = document.querySelector("#city-input");
+  createUrl(userCity.value);
+}
+
 createUrl("New York");
 displayTime();
+let cityForm = document.querySelector("#city-form");
+cityForm.addEventListener("submit", getCity);
