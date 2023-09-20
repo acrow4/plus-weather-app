@@ -49,3 +49,7 @@ footer {
   padding: 30px 20px 5px 40px;
   font-family: "Ubuntu", sans-serif;
 }
+
+#condition {
+  text-transform: capitalize;
+}

@@ -34,18 +34,22 @@ function displayTime() {
 function showData(response) {
   let temp = Math.round(response.data.main.temp);
   let newTemp = document.querySelector("#current-temp");
-  newTemp.innerHTML = `${temp}`;
   let newCity = document.querySelector("#city");
-  newCity.innerHTML = response.data.name;
   let newHumidity = document.querySelector("#humidity");
-  newHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   let newWindSpeed = document.querySelector("#wind-speed");
+  let newCondition = document.querySelector("#condition");
+  let conditionIcon = document.querySelector("#condition-icon");
+  let iconCode = response.data.weather[0].icon;
+  let iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+  newTemp.innerHTML = `${temp}`;
+  newCity.innerHTML = response.data.name;
+  newHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   newWindSpeed.innerHTML = `Wind Speed: ${Math.round(
     response.data.wind.speed
   )} km/h`;
-  let newCondition = document.querySelector("#condition");
-  newCondition.innerHTML = response.data.weather[0].main;
-  console.log(response.data);
+  newCondition.innerHTML = response.data.weather[0].description;
+  conditionIcon.setAttribute("src", iconUrl);
+  conditionIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function createUrl(city) {

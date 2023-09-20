@@ -30,22 +30,27 @@
         <div class="col-6">
           <h1 class="city" id="city">New York</h1>
           <ul>
-            <li id="humidity">Humidity: 82%</li>
-            <li id="wind-speed">Wind Speed: 7.2 km/h</li>
+            <li id="humidity">Humidity:</li>
+            <li id="wind-speed">Wind Speed:</li>
           </ul>
         </div>
         <div class="col-6">
           <ul>
-            <li class="condition" id="condition">Rainy</li>
+            <li class="condition" id="condition"></li>
             <li class="temp">
               <span id="current-temp"></span
               ><span class="conversions">°F | °C</span>
-              <i class="fa-solid fa-cloud-rain current-condition"></i>
+              <img
+                src="https://openweathermap.org/img/wn/03d@2x.png"
+                alt="clear"
+                id="condition-icon"
+                class="current-condition"
+              />
             </li>
           </ul>
         </div>
       </div>
-      <p id="updated-date">Last Updated: Monday 8:50 pm</p>
+      <p id="updated-date">Last Updated:</p>
     </div>
     <footer>
       This page was built by
