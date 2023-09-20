@@ -1,0 +1,35 @@
+body {
+  background-color: aliceblue;
+  background-image: url(../images/clouds.jpg);
+}
+
+ul {
+  list-style-type: none;
+}
+
+footer {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+.city {
+  font-size: 70px;
+}
+
+.temp,
+.temp-icon {
+  font-size: 70px;
+}
+
+.container {
+  color: black;
+  background-color: white;
+  margin-top: 50px;
+  max-width: 800px;
+  min-width: 400px;
+  border-radius: 20px;
+  padding: 30px 20px 30px 40px;
+  font-family: "Ubuntu", sans-serif;
+}
