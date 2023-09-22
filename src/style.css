@@ -53,3 +53,8 @@ footer {
 #condition {
   text-transform: capitalize;
 }
+
+#search-button {
+  background-color: #7fade9;
+  border-color: #7fade9;
+}
