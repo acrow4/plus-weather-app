@@ -33,6 +33,7 @@ function displayTime() {
 
 function showData(response) {
   let temp = Math.round(response.data.main.temp);
+  fahrenheitTemp = temp;
   let newTemp = document.querySelector("#current-temp");
   let newCity = document.querySelector("#city");
   let newHumidity = document.querySelector("#humidity");
@@ -41,6 +42,10 @@ function showData(response) {
   let conditionIcon = document.querySelector("#condition-icon");
   let iconCode = response.data.weather[0].icon;
   let iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+  let activeLink = document.querySelector("#f-link");
+  let inactiveLink = document.querySelector("#c-link");
+  activeLink.setAttribute("class", "active");
+  inactiveLink.removeAttribute("class");
   newTemp.innerHTML = `${temp}`;
   newCity.innerHTML = response.data.name;
   newHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
@@ -65,23 +70,26 @@ function getCity(event) {
 
 function convertToC(event) {
   event.preventDefault();
-  alert("clicked C");
   let activeLink = document.querySelector("#c-link");
   let inactiveLink = document.querySelector("#f-link");
   activeLink.setAttribute("class", "active");
   inactiveLink.removeAttribute("class");
+  let newTemp = document.querySelector("#current-temp");
+  let celciusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  newTemp.innerHTML = `${Math.round(celciusTemp)}`;
 }
 
 function convertToF(event) {
   event.preventDefault();
-  alert("clicked F");
   let activeLink = document.querySelector("#f-link");
   let inactiveLink = document.querySelector("#c-link");
   activeLink.setAttribute("class", "active");
   inactiveLink.removeAttribute("class");
+  let newTemp = document.querySelector("#current-temp");
+  newTemp.innerHTML = `${fahrenheitTemp}`;
 }
 
-createUrl("New York");
+let fahrenheitTemp = null;
 displayTime();
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", getCity);
@@ -89,3 +97,4 @@ let convertLink = document.querySelector("#c-link");
 convertLink.addEventListener("click", convertToC);
 convertLink = document.querySelector("#f-link");
 convertLink.addEventListener("click", convertToF);
+createUrl("New York");
