@@ -64,3 +64,8 @@ footer {
   background-color: #7fade9;
   border-color: #7fade9;
 }
+
+#city-form {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}

@@ -26,8 +26,19 @@
   <body>
     <div class="container">
       <form id="city-form">
-        <input type="search" id="city-input" />
-        <input class="btn btn-info" id="search-button" type="submit" />
+        <div class="row">
+          <div class="col-10">
+            <input
+              type="search"
+              class="form-control"
+              id="city-input"
+              placeholder="Type a city..."
+            />
+          </div>
+          <div class="col-2">
+            <input class="btn btn-info" id="search-button" type="submit" />
+          </div>
+        </div>
       </form>
       <div class="row">
         <div class="col-6">
