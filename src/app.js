@@ -63,7 +63,29 @@ function getCity(event) {
   createUrl(userCity.value);
 }
 
+function convertToC(event) {
+  event.preventDefault();
+  alert("clicked C");
+  let activeLink = document.querySelector("#c-link");
+  let inactiveLink = document.querySelector("#f-link");
+  activeLink.setAttribute("class", "active");
+  inactiveLink.removeAttribute("class");
+}
+
+function convertToF(event) {
+  event.preventDefault();
+  alert("clicked F");
+  let activeLink = document.querySelector("#f-link");
+  let inactiveLink = document.querySelector("#c-link");
+  activeLink.setAttribute("class", "active");
+  inactiveLink.removeAttribute("class");
+}
+
 createUrl("New York");
 displayTime();
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", getCity);
+let convertLink = document.querySelector("#c-link");
+convertLink.addEventListener("click", convertToC);
+convertLink = document.querySelector("#f-link");
+convertLink.addEventListener("click", convertToF);

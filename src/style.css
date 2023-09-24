@@ -50,6 +50,12 @@ footer {
   font-family: "Ubuntu", sans-serif;
 }
 
+.active {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+
 #condition {
   text-transform: capitalize;
 }
