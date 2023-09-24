@@ -66,6 +66,7 @@ function getCity(event) {
   event.preventDefault();
   let userCity = document.querySelector("#city-input");
   createUrl(userCity.value);
+  userCity.value = "";
 }
 
 function convertToC(event) {
