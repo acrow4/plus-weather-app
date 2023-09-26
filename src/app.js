@@ -31,6 +31,14 @@ function displayTime() {
   }
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let dayOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+  return dayOfWeek[day];
+}
+
 function showData(response) {
   let temp = Math.round(response.data.main.temp);
   fahrenheitTemp = temp;
@@ -63,10 +71,10 @@ function showData(response) {
 
 function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Mon", "Tues", "Wed", "Thurs", "Fri"];
   let newForecast = `<div class="row weather-forecast">`;
   let border = "border-right";
-  console.log(response);
+  let days = response.data.daily;
+  let day = null;
 
   days.forEach(function (day, key, days) {
     let forecastIcon = response.data.daily[key].weather[0].icon;
@@ -75,13 +83,15 @@ function showForecast(response) {
     } else {
       border = "border-right";
     }
-    if (Object.is(days.length - 1, key)) {
+    if (key > 3) {
       border = "";
     }
 
-    newForecast =
-      newForecast +
-      `   
+    day = formatDay(response.data.daily[key].dt);
+    if (key < 5) {
+      newForecast =
+        newForecast +
+        `   
           <div class="col ${border}">
             <img
               src="https://openweathermap.org/img/wn/${forecastIcon}.png"
@@ -96,6 +106,7 @@ function showForecast(response) {
               )}°</span> / ${Math.round(response.data.daily[key].temp.min)}°
             </div>
           </div>`;
+    }
   });
 
   newForecast = newForecast + `</div>`;
