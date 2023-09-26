@@ -57,6 +57,30 @@ function showData(response) {
   conditionIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let newForecast = "";
+  newForecast =
+    newForecast +
+    `        <div class="row weather-forecast">
+          <div class="col border-right">
+            <img
+              src="https://openweathermap.org/img/wn/03d@2x.png"
+              alt="clear"
+              id="condition-icon"
+              class="current-condition"
+            />
+            <div class="forecast-text">
+              Tuesday<br />
+              <span class="high-temp">93°</span> / 87°
+            </div>
+          </div>
+        </div>`;
+
+  forecastElement.innerHTML = newForecast;
+}
+
 function createUrl(city) {
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   axios.get(weatherUrl).then(showData);
@@ -99,3 +123,4 @@ convertLink.addEventListener("click", convertToC);
 convertLink = document.querySelector("#f-link");
 convertLink.addEventListener("click", convertToF);
 createUrl("New York");
+showForecast();
