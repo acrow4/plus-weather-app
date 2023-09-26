@@ -59,12 +59,27 @@ function showData(response) {
 
 function showForecast() {
   let forecastElement = document.querySelector("#forecast");
+  let days = ["Mon", "Tues", "Wed", "Thurs", "Fri"];
+  let newForecast = `<div class="row weather-forecast">`;
+  let border = "border-right";
 
-  let newForecast = "";
-  newForecast =
-    newForecast +
-    `        <div class="row weather-forecast">
-          <div class="col border-right">
+  days.forEach(function (day, key, days) {
+    if (Object.is(0, key)) {
+      border = "border-right first";
+    } else {
+      border = "border-right";
+    }
+    if (Object.is(days.length - 1, key)) {
+      border = "";
+    }
+
+    console.log(days.length);
+    console.log(key);
+
+    newForecast =
+      newForecast +
+      `   
+          <div class="col ${border}">
             <img
               src="https://openweathermap.org/img/wn/03d@2x.png"
               alt="clear"
@@ -72,12 +87,14 @@ function showForecast() {
               class="current-condition"
             />
             <div class="forecast-text">
-              Tuesday<br />
+              ${day}<br />
               <span class="high-temp">93°</span> / 87°
             </div>
-          </div>
-        </div>`;
+          </div>`;
+  });
 
+  newForecast = newForecast + `</div>`;
+  console.log(newForecast);
   forecastElement.innerHTML = newForecast;
 }
 
