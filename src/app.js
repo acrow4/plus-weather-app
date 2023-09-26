@@ -1,4 +1,4 @@
-let apiKey = "6c63967610076fffc576a864a7af27d0";
+let apiKey = "667d9f573c8af4c33457be5d561a9148";
 
 function displayTime() {
   let dayOfWeek = [
@@ -44,6 +44,9 @@ function showData(response) {
   let iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
   let activeLink = document.querySelector("#f-link");
   let inactiveLink = document.querySelector("#c-link");
+  let lat = response.data.coord.lat;
+  let lon = response.data.coord.lon;
+  let forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&APPID=${apiKey}&units=imperial`;
   activeLink.setAttribute("class", "active");
   inactiveLink.removeAttribute("class");
   newTemp.innerHTML = `${temp}`;
@@ -55,15 +58,18 @@ function showData(response) {
   newCondition.innerHTML = response.data.weather[0].description;
   conditionIcon.setAttribute("src", iconUrl);
   conditionIcon.setAttribute("alt", response.data.weather[0].description);
+  axios.get(forecastUrl).then(showForecast);
 }
 
-function showForecast() {
+function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let days = ["Mon", "Tues", "Wed", "Thurs", "Fri"];
   let newForecast = `<div class="row weather-forecast">`;
   let border = "border-right";
+  console.log(response);
 
   days.forEach(function (day, key, days) {
+    let forecastIcon = response.data.daily[key].weather[0].icon;
     if (Object.is(0, key)) {
       border = "border-right first";
     } else {
@@ -73,28 +79,26 @@ function showForecast() {
       border = "";
     }
 
-    console.log(days.length);
-    console.log(key);
-
     newForecast =
       newForecast +
       `   
           <div class="col ${border}">
             <img
-              src="https://openweathermap.org/img/wn/03d@2x.png"
+              src="https://openweathermap.org/img/wn/${forecastIcon}.png"
               alt="clear"
               id="condition-icon"
               class="current-condition"
             />
             <div class="forecast-text">
               ${day}<br />
-              <span class="high-temp">93°</span> / 87°
+              <span class="high-temp">${Math.round(
+                response.data.daily[key].temp.max
+              )}°</span> / ${Math.round(response.data.daily[key].temp.min)}°
             </div>
           </div>`;
   });
 
   newForecast = newForecast + `</div>`;
-  console.log(newForecast);
   forecastElement.innerHTML = newForecast;
 }
 
@@ -140,4 +144,4 @@ convertLink.addEventListener("click", convertToC);
 convertLink = document.querySelector("#f-link");
 convertLink.addEventListener("click", convertToF);
 createUrl("New York");
-showForecast();
+//showForecast();
