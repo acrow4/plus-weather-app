@@ -25,6 +25,7 @@
   </head>
   <body>
     <div class="container">
+      <p id="updated-date">Last Updated:</p>
       <form id="city-form">
         <div class="row">
           <div class="col-10">
@@ -66,8 +67,22 @@
             </li>
           </ul>
         </div>
+
+        <div class="row weather-forecast">
+          <div class="col border-right">
+            <img
+              src="https://openweathermap.org/img/wn/03d@2x.png"
+              alt="clear"
+              id="condition-icon"
+              class="current-condition"
+            />
+            <div class="forecast-text">
+              Tuesday<br />
+              <span class="high-temp">93°</span> / 87°
+            </div>
+          </div>
+        </div>
       </div>
-      <p id="updated-date">Last Updated:</p>
     </div>
     <footer>
       This page was built by
