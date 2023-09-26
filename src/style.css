@@ -70,8 +70,19 @@ footer {
 
 .weather-forecast {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   font-size: 20px;
+}
+
+.forecast-icon {
+  position: relative;
+  bottom: -20px;
+  padding-bottom: 30px;
+}
+
+#f-link {
+  position: relative;
+  bottom: 25px;
 }
 
 #condition {
@@ -86,4 +97,9 @@ footer {
 #city-form {
   padding-top: 10px;
   padding-bottom: 30px;
+}
+
+#condition-icon {
+  position: relative;
+  top: 10px;
 }

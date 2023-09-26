@@ -62,7 +62,7 @@ function showData(response) {
   newHumidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   newWindSpeed.innerHTML = `Wind Speed: ${Math.round(
     response.data.wind.speed
-  )} km/h`;
+  )} mph`;
   newCondition.innerHTML = response.data.weather[0].description;
   conditionIcon.setAttribute("src", iconUrl);
   conditionIcon.setAttribute("alt", response.data.weather[0].description);
@@ -92,7 +92,7 @@ function showForecast(response) {
       newForecast =
         newForecast +
         `   
-          <div class="col ${border}">
+          <div class="col ${border} forecast-icon">
             <img
               src="https://openweathermap.org/img/wn/${forecastIcon}.png"
               alt="clear"
